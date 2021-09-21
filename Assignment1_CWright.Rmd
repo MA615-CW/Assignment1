@@ -1,0 +1,72 @@
+---
+title: "Car_viz_h"
+author: "Carolyn Wright"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+pacman::p_load("knitr","ggplot2", "tidyverse", "esquisse")
+options(warn = -1)
+```
+
+```{r}
+# call built-in data mtcars.
+data(mtcars)
+
+```
+mtcars {datasets}
+
+<header>Motor Trend Car Road Tests</header>
+ + Description
+  + The data was extracted from the 1974 Motor Trend US magazine, and comprises fuel consumption and 10 aspects of automobile design and performance for 32 automobiles (1973–74 models).
+
+<header>Usage</header>
+ + mtcars-->
+ 
+<header>Format</header>
+ + A data frame with 32 observations on 11 (numeric) variables.
+
+   + [, 1]	mpg	Miles/(US) gallon
+
+   + [, 2]	cyl	Number of cylinders
+
+   + [, 3]	disp	Displacement (cu.in.)
+
+   + [, 4]	hp	Gross horsepower
+
+   + [, 5]	drat	Rear axle ratio
+
+   + [, 6]	wt	Weight (1000 lbs)
+
+   + [, 7]	qsec	1/4 mile time
+
+   + [, 8]	vs	Engine (0 = V-shaped, 1 = straight)
+
+   + [, 9]	am	Transmission (0 = automatic, 1 = manual)
+
+   + [,10]	gear	Number of forward gears
+
+   + [,11]	carb	Number of carburetors
+
+<header>Note</header>
+ + Henderson and Velleman (1981) comment in a footnote to Table 1: Hocking [original transcriber]s noncrucial coding of the Mazdas rotary engine as a straight six-cylinder engine and the Porsches flat engine as a V engine, as well as the inclusion of the diesel Mercedes 240D, have been retained to enable direct comparisons to be made with previous analyses.
+
+<header>Source</header>
+ + Henderson and Velleman (1981), Building multiple regression models interactively. Biometrics, 37, 391–411.
+ 
+```{r}
+# Select only car models where mpg<20
+mtcars_mpg2 <- mtcars[mtcars$mpg < 20,]
+
+# Reduce the variables to mpg, cyl, disp, hp, gears
+mtcars_mpg2 <- mtcars_mpg2[, c(1,2,3,4,10)]
+
+# read the R file hand_functions.R so that it can be used
+# note I have changed echo to false so that the source code will not be displayed
+source(file = "hand_functions.R", echo = FALSE)
+
+# Now use the function from hand_functions.R
+sp_out <- sum_special(mtcars_mpg2)
+```
+ 

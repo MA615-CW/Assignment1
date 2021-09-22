@@ -238,7 +238,10 @@ sp_out &lt;- sum_special(mtcars_mpg2)</code></pre>
 <header>
 <b>Look at some results from ‘sum_special’ function
 </header>
-<p></b> + Means:</p>
+<p></b></p>
+<ul>
+<li>Means:</li>
+</ul>
 <pre class="r"><code>#call the sp_means that is a list of means included in sp_out
 sp_out$sp_means</code></pre>
 <pre><code>##        mpg        cyl       disp         hp       gear 
@@ -262,7 +265,8 @@ Investigate the esquisse package
 ggplot(mtcars) +
  aes(x = wt, y = mpg, size = hp) +
  geom_point(shape = &quot;diamond filled&quot;, colour = &quot;#458ED2&quot;) +
- labs(x = &quot;Weight(1000 lbs)&quot;, y = &quot;Miles/(US) gallon&quot;, title = &quot;Motor Trend Car Road Tests&quot;, size = &quot;Gross horsepower&quot;) +
+ labs(x = &quot;Weight(1000 lbs)&quot;, y = &quot;Miles/(US) gallon&quot;, 
+      title = &quot;Motor Trend Car Road Tests&quot;, size = &quot;Gross horsepower&quot;) +
  theme_bw() +
  theme(legend.position = &quot;top&quot;) +
  facet_wrap(vars(cyl), ncol = 1L)</code></pre>

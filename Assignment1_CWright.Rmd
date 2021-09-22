@@ -1,7 +1,7 @@
 ---
 title: "Car_viz_h"
 author: "Carolyn Wright"
-output: html_document
+output: pdf_document
 ---
 
 ```{r setup, include=FALSE}
@@ -73,6 +73,7 @@ sp_out <- sum_special(mtcars_mpg2)
 <br>
 
 <header><b>Look at some results from 'sum_special' function</header></b>
+
  + Means:
 ```{r}
 #call the sp_means that is a list of means included in sp_out
@@ -97,7 +98,8 @@ sp_out$sp_var
 ggplot(mtcars) +
  aes(x = wt, y = mpg, size = hp) +
  geom_point(shape = "diamond filled", colour = "#458ED2") +
- labs(x = "Weight(1000 lbs)", y = "Miles/(US) gallon", title = "Motor Trend Car Road Tests", size = "Gross horsepower") +
+ labs(x = "Weight(1000 lbs)", y = "Miles/(US) gallon", 
+      title = "Motor Trend Car Road Tests", size = "Gross horsepower") +
  theme_bw() +
  theme(legend.position = "top") +
  facet_wrap(vars(cyl), ncol = 1L)
